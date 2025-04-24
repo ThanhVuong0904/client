@@ -7,7 +7,9 @@ import * as Options from '../Options.js'
 const getRosterColor = ({ colors }, marks, player) => {
     const dead = player.status === 'dead'
     const knocked = player.status !== 'dead' && player.health === 0
-
+    if (player.teammates.includes(marks.focusedPlayer())) {
+        // marks.addTrackedPlayers(player.teammates)
+    }
     if (knocked) {
         return colors.roster.knocked
     } else if (marks.focusedPlayer() === player.name) {
@@ -23,7 +25,7 @@ const TeamGroup = styled.ul`
     list-style-type: none;
     border: 1px solid var(--grey-1);
     border-radius: 4px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     margin: 5px 0;
     padding: 4px;
@@ -40,7 +42,7 @@ const PlayerItem = styled.li`
 
     i {
         margin-left: 5px;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         line-height: 0.5rem;
     }
 `

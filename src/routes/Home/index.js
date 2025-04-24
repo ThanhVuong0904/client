@@ -35,7 +35,7 @@ const RandomMatchLink = styled(Link)`
 
     span {
         display: block;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         margin: 10px 0 0;
         color: #4cbb89;
         cursor: pointer;

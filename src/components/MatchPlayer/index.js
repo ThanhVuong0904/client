@@ -77,21 +77,21 @@ const MatchHeader = styled.div`
 
 const RosterHeader = styled.div`
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 400;
 `
 
 class MatchPlayer extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
             mapSize: 0,
             focusedPlayer: props.playerName,
             // See getDerivedStateFromProps
             prevPlayerName: props.playerName,
             hoveredPlayer: null,
-            trackedPlayers: [],
+            // Initial tracked players
+            trackedPlayers: props.rosters[0],
             options: Options.DEFAULT_OPTIONS,
             setOption: null,
         }
@@ -119,6 +119,11 @@ class MatchPlayer extends React.Component {
                     trackedPlayers: xor(trackedPlayers, playerNames),
                 }
             })
+        },
+        addTrackedPlayers: (...playerNames) => {
+            this.setState(({ trackedPlayers }) => ({
+                trackedPlayers: union(trackedPlayers, playerNames),
+            }))
         },
     }
 

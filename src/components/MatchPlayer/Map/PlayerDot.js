@@ -69,9 +69,10 @@ const PlayerLabel = ({ visible, player, strokeColor }) => {
 }
 
 const PlayerDot = ({ options, player, pubgMapSize, mapSize, marks, mapScale, showName }) => {
-    const diameter = marks.isPlayerHovered(player.name) ? 11 : 8
+    const diameter = marks.isPlayerTracked(player.name) ? 20 : 8
     const scaledDiameter = diameter * clamp(mapScale / 1.4, 1, 1.3)
     const health = player.health / 100
+    // console.log('player', player)
 
     const mouseEvents = {
         onMouseOver(e) {

@@ -24,7 +24,7 @@ const images = importAll(require.context('../../../assets/item', true, /.png$/))
 const LoadoutWrapper = styled.div`
     width: 220px;
     border-radius: 4px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 400;
     padding: 4px;
 `
@@ -91,7 +91,7 @@ const ItemIconPlaceholder = styled(ItemIcon)`
 `
 
 const NoItems = styled.span`
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 400;
     margin-bottom: 10px;
     display: inline-block;
@@ -134,15 +134,15 @@ const WeaponsList = ({ weapons }) => {
                             <span>{dict[itemId]}</span>
                         </ParentItem>
                         {i.attachedItems.length > 0 &&
-                        <SubList>
-                            {i.attachedItems.map(ai => {
-                                return (
-                                    <SubListItem key={ai}>
-                                        {dict[ai]}
-                                    </SubListItem>
-                                )
-                            })}
-                        </SubList>
+                            <SubList>
+                                {i.attachedItems.map(ai => {
+                                    return (
+                                        <SubListItem key={ai}>
+                                            {dict[ai]}
+                                        </SubListItem>
+                                    )
+                                })}
+                            </SubList>
                         }
                     </ListItem>
                 )
